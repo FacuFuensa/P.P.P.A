@@ -1,0 +1,56 @@
+1. Coordinación del Gobierno
+* Crear una aplicación provincial donde los ciudadanos puedan seguir obras, reclamos y trámites.
+* Publicar cada mes en internet en qué se gasta el dinero público.
+* Unificar los trámites provinciales en una sola plataforma.
+2. Economía
+* Beneficios impositivos para empresas que contraten jóvenes tucumanos.
+* Créditos blandos para emprendedores y pequeños comercios.
+* Apoyar a las industrias del limón, azúcar, arándanos y frutilla para aumentar exportaciones.
+3. Educación, Trabajo y Desarrollo Social
+* Más escuelas técnicas orientadas a programación, robótica y oficios.
+* Pasantías para estudiantes de los últimos años de secundaria.
+* Becas para estudiantes con buen rendimiento académico.
+* Programas de apoyo escolar gratuitos en barrios vulnerables.
+4. Modernización del Estado
+* Digitalizar todos los trámites provinciales.
+* Reducir tiempos de espera en hospitales y oficinas públicas mediante turnos online.
+* Eliminar trámites repetidos e innecesarios.
+5. Relaciones Internacionales y Comercio
+* Buscar nuevos mercados para productos tucumanos.
+* Promover acuerdos con universidades extranjeras para intercambios estudiantiles.
+* Participar en ferias internacionales para atraer inversiones.
+6. Interior
+* Mejorar caminos y rutas en el interior de la provincia.
+* Ampliar el acceso a internet en comunas rurales.
+* Crear centros de atención ciudadana en pueblos alejados.
+7. Seguridad
+* Instalar más cámaras en zonas con altos índices de robos.
+* Crear corredores seguros alrededor de escuelas.
+* Aumentar la capacitación policial en prevención del delito.
+* Incorporar una aplicación para denuncias rápidas.
+
+8. Justicia
+* Agilizar causas judiciales mediante expedientes digitales.
+* Crear oficinas de mediación para resolver conflictos sin llegar a juicio.
+* Fortalecer la asistencia jurídica gratuita.
+9. Defensa
+*(Como provincia tiene pocas competencias en defensa, conviene enfocarlo en emergencias.)*
+* Equipar mejor a Defensa Civil.
+* Crear planes de acción ante inundaciones y tormentas fuertes.
+* Capacitar a escuelas y barrios para actuar ante emergencias.
+10. Salud
+* Mejorar la infraestructura de hospitales públicos.
+* Más centros de atención primaria en barrios alejados.
+* Campañas de prevención sobre diabetes, obesidad y salud mental.
+* Sistema online para sacar turnos médicos.
+11. Turismo
+* Promocionar más lugares como Tafí del Valle, San Javier y Ruinas de Quilmes.
+* Crear eventos culturales y gastronómicos durante todo el año.
+* Mejorar señalización y accesos a los principales atractivos turísticos.
+* Impulsar el turismo de aventura y ecoturismo.
+12. Deportes
+* Construir y refaccionar polideportivos municipales.
+* Entregar material deportivo a escuelas públicas.
+* Crear una liga provincial escolar en varios deportes.
+* Becas para deportistas destacados.
+* Programa especial de desarrollo para hockey, fútbol, vóley y atletismo.

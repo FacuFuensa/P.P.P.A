@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P.P.P.A. — Partido Político Potencia Argentina | Tucumán</title>
+  <meta name="description" content="Sitio oficial del Partido Político Potencia Argentina (P.P.P.A.) — proyecto escolar ficticio. Propuestas, estadísticas y el juego Conviértete en Gobernador de Tucumán.">
+  <!-- Favicon: escudo simplificado en SVG embebido (funciona sin archivos externos) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 116'%3E%3Cpath d='M5 6h90v56c0 28-45 50-45 50S5 90 5 62Z' fill='%23AC8A3E'/%3E%3Cpath d='M12 13h76v47c0 23-38 42-38 42s-38-19-38-42Z' fill='%23B687E0'/%3E%3Cpath d='M12 60 88 24v18L12 78Z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       DEFINICIÓN DEL ESCUDO DEL P.P.P.A. (símbolo SVG reutilizable)
+       Se usa en el héroe, la barra de navegación y el pie de página
+       ============================================================ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="pppa-escudo" viewBox="0 0 200 232">
+        <!-- Borde exterior dorado -->
+        <path d="M10 12 H190 V124 C190 180 100 222 100 222 C100 222 10 180 10 124 Z" fill="#AC8A3E"/>
+        <!-- Separación blanca interior -->
+        <path d="M17 19 H183 V121 C183 174 100 214 100 214 C100 214 17 174 17 121 Z" fill="#FFFFFF"/>
+        <clipPath id="pppa-clip">
+          <path d="M22 24 H178 V119 C178 170 100 208 100 208 C100 208 22 170 22 119 Z"/>
+        </clipPath>
+        <g clip-path="url(#pppa-clip)">
+          <!-- Fondo blanco -->
+          <rect x="0" y="0" width="200" height="232" fill="#FFFFFF"/>
+          <!-- Franjas verticales lilas de la parte inferior -->
+          <rect x="22"    y="0" width="31.2" height="232" fill="#B687E0"/>
+          <rect x="84.4"  y="0" width="31.2" height="232" fill="#B687E0"/>
+          <rect x="146.8" y="0" width="31.2" height="232" fill="#B687E0"/>
+          <!-- Campo lila superior -->
+          <polygon points="0,0 200,0 200,52 0,148" fill="#B687E0"/>
+          <!-- Banda diagonal blanca -->
+          <polygon points="0,148 200,52 200,116 0,212" fill="#FFFFFF"/>
+          <!-- Siglas doradas sobre la banda -->
+          <text x="100" y="146" text-anchor="middle" transform="rotate(-25.6 100 132)"
+                font-family="Georgia, 'Times New Roman', serif" font-weight="bold"
+                font-size="40" letter-spacing="1" fill="#AC8A3E">P.P.P.A.</text>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Barra de progreso de lectura -->
+  <div id="barraProgreso" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       BARRA DE NAVEGACIÓN
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <a class="nav-marca" href="#inicio" aria-label="Ir al inicio">
+      <svg class="nav-escudo" aria-hidden="true"><use href="#pppa-escudo"></use></svg>
+      <span class="nav-siglas">P.P.P.A.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#gobernador">Gobernador</a>
+      <a href="#propuestas">Propuestas</a>
+      <a href="#estadisticas">Estadísticas</a>
+      <a class="nav-link-juego" href="#juego">🎮 Juego</a>
+    </nav>
+
+    <div class="nav-acciones">
+      <button id="botonSonido" class="boton-icono" type="button" aria-label="Activar o desactivar sonidos" title="Sonidos">🔊</button>
+      <button id="botonTema" class="boton-icono" type="button" aria-label="Cambiar modo claro u oscuro" title="Modo oscuro">🌙</button>
+      <button id="botonMenu" class="boton-icono boton-menu" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         1. PÁGINA DE INICIO (HÉROE)
+         ============================================================ -->
+    <section class="hero" id="inicio">
+      <div class="hero-fondo" aria-hidden="true">
+        <div class="hero-banda"></div>
+        <div class="hero-halftone"></div>
+      </div>
+
+      <div class="hero-contenido">
+        <div class="hero-texto">
+          <p class="hero-kicker anim" style="--d:.1s">★ Elecciones provinciales · Tucumán ★</p>
+          <h1 class="hero-titulo">
+            <span class="hero-linea anim" style="--d:.25s">Partido Político</span>
+            <span class="hero-linea hero-linea-grande anim" style="--d:.4s">Potencia</span>
+            <span class="hero-linea hero-linea-grande hero-linea-contorno anim" style="--d:.55s">Argentina</span>
+          </h1>
+          <p class="hero-eslogan anim" style="--d:.7s">“¡Tucumán enciende, <strong>Argentina potencia</strong>!”</p>
+          <p class="hero-sub anim" style="--d:.8s">El futuro no se espera: se construye. Un proyecto joven, moderno y federal para los próximos 4 años.</p>
+          <div class="hero-botones anim" style="--d:.95s">
+            <a class="boton boton-primario" href="#propuestas">Conocé las propuestas</a>
+            <a class="boton boton-secundario" href="#juego">🎮 Jugá: sé Gobernador</a>
+          </div>
+        </div>
+
+        <div class="hero-escudo anim-escudo" aria-hidden="false">
+          <svg class="escudo-grande" role="img" aria-label="Escudo del Partido Político Potencia Argentina">
+            <use href="#pppa-escudo"></use>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Contadores animados -->
+      <div class="hero-stats anim" style="--d:1.1s">
+        <div class="stat-hero"><span class="stat-numero" data-meta="12">0</span><span class="stat-etiqueta">ministerios con plan</span></div>
+        <div class="stat-hero"><span class="stat-numero" data-meta="93">0</span><span class="stat-etiqueta">municipios y comunas</span></div>
+        <div class="stat-hero"><span class="stat-numero" data-meta="10000" data-formato="miles">0</span><span class="stat-etiqueta">becas Potencia</span></div>
+        <div class="stat-hero"><span class="stat-numero" data-meta="4">0</span><span class="stat-etiqueta">años para transformar</span></div>
+      </div>
+    </section>
+
+    <!-- Cinta de noticias estilo campaña -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-pista">
+        <div class="ticker-grupo">
+          <span>POTENCIA ARGENTINA</span><span>★</span><span>EDUCACIÓN PRIMERO</span><span>★</span>
+          <span>TUCUMÁN ENCIENDE</span><span>★</span><span>TRABAJO JOVEN</span><span>★</span>
+          <span>SALUD PARA TODOS</span><span>★</span><span>TRANSPARENCIA TOTAL</span><span>★</span>
+        </div>
+        <div class="ticker-grupo">
+          <span>POTENCIA ARGENTINA</span><span>★</span><span>EDUCACIÓN PRIMERO</span><span>★</span>
+          <span>TUCUMÁN ENCIENDE</span><span>★</span><span>TRABAJO JOVEN</span><span>★</span>
+          <span>SALUD PARA TODOS</span><span>★</span><span>TRANSPARENCIA TOTAL</span><span>★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2. QUIÉNES SOMOS
+         ============================================================ -->
+    <section class="seccion" id="quienes-somos">
+      <div class="contenedor">
+        <p class="seccion-kicker" data-reveal>Nuestra identidad</p>
+        <h2 class="seccion-titulo" data-reveal>¿Quiénes <em>somos</em>?</h2>
+        <p class="seccion-intro" data-reveal>
+          El <strong>P.P.P.A.</strong> nació en las aulas y en los barrios de Tucumán con una idea simple:
+          la provincia tiene todo para ser potencia — talento, historia y juventud — y solo falta un
+          gobierno que se anime a encender el motor. Somos un partido <strong>moderno, federal y
+          transparente</strong>, que cree que la política se hace con datos abiertos, escuelas fuertes
+          y trabajo de verdad.
+        </p>
+        <p class="seccion-pista" data-reveal>👆 Tocá cada tarjeta para descubrir nuestros principios</p>
+
+        <div class="grilla-valores">
+          <!-- Tarjetas interactivas (se dan vuelta al tocarlas) -->
+          <div class="tarjeta-flip" tabindex="0" role="button" aria-pressed="false" data-reveal style="--d:.05s">
+            <div class="flip-interior">
+              <div class="flip-frente"><span class="flip-icono">🔍</span><h3>Transparencia total</h3></div>
+              <div class="flip-dorso"><p>Presupuesto, compras y sueldos públicos en línea, a un clic de cualquier ciudadano. Gobernar de cara a la gente.</p></div>
+            </div>
+          </div>
+          <div class="tarjeta-flip" tabindex="0" role="button" aria-pressed="false" data-reveal style="--d:.1s">
+            <div class="flip-interior">
+              <div class="flip-frente"><span class="flip-icono">📚</span><h3>Educación primero</h3></div>
+              <div class="flip-dorso"><p>No hay provincia potencia sin aulas potencia. La educación pública es nuestra inversión número uno, no un gasto.</p></div>
+            </div>
+          </div>
+          <div class="tarjeta-flip" tabindex="0" role="button" aria-pressed="false" data-reveal style="--d:.15s">
+            <div class="flip-interior">
+              <div class="flip-frente"><span class="flip-icono">⚙️</span><h3>Trabajo y producción</h3></div>
+              <div class="flip-dorso"><p>El limón, la caña, el software y el turismo tucumano pueden dar empleo a miles. El Estado debe ayudar, no trabar.</p></div>
+            </div>
+          </div>
+          <div class="tarjeta-flip" tabindex="0" role="button" aria-pressed="false" data-reveal style="--d:.2s">
+            <div class="flip-interior">
+              <div class="flip-frente"><span class="flip-icono">🗺️</span><h3>Federalismo real</h3></div>
+              <div class="flip-dorso"><p>Tucumán decide en Tucumán. Los 93 municipios y comunas merecen las mismas oportunidades que la capital.</p></div>
+            </div>
+          </div>
+          <div class="tarjeta-flip" tabindex="0" role="button" aria-pressed="false" data-reveal style="--d:.25s">
+            <div class="flip-interior">
+              <div class="flip-frente"><span class="flip-icono">🚀</span><h3>Innovación joven</h3></div>
+              <div class="flip-dorso"><p>Somos la generación que creció con internet: queremos un Estado tan ágil como una app y tan cercano como un vecino.</p></div>
+            </div>
+          </div>
+          <div class="tarjeta-flip" tabindex="0" role="button" aria-pressed="false" data-reveal style="--d:.3s">
+            <div class="flip-interior">
+              <div class="flip-frente"><span class="flip-icono">🤝</span><h3>Nadie afuera</h3></div>
+              <div class="flip-dorso"><p>El crecimiento solo vale si llega a todos: solidaridad con quienes menos tienen y políticas que no dejen a nadie atrás.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. GOBERNADOR
+         ============================================================ -->
+    <section class="seccion seccion-oscura seccion-diagonal" id="gobernador">
+      <div class="contenedor gobernador-grid">
+        <div class="gobernador-retrato" data-reveal="izquierda">
+          <div class="retrato-marco">
+            <!-- Avatar ilustrativo del candidato (SVG) -->
+            <svg viewBox="0 0 240 240" role="img" aria-label="Avatar ilustrativo del candidato a gobernador">
+              <circle cx="120" cy="120" r="116" fill="#B687E0"/>
+              <circle cx="120" cy="120" r="116" fill="none" stroke="#AC8A3E" stroke-width="6"/>
+              <!-- Cuerpo: traje -->
+              <path d="M40 240 C40 185 75 162 120 162 C165 162 200 185 200 240 Z" fill="#2A1840"/>
+              <!-- Camisa y corbata -->
+              <path d="M98 166 L120 196 L142 166 L132 162 L108 162 Z" fill="#FFFFFF"/>
+              <path d="M114 168 L120 196 L126 168 L120 163 Z" fill="#AC8A3E"/>
+              <!-- Cuello -->
+              <rect x="105" y="138" width="30" height="32" rx="12" fill="#E8B48C"/>
+              <!-- Cabeza -->
+              <ellipse cx="120" cy="104" rx="42" ry="46" fill="#F0BE94"/>
+              <!-- Orejas -->
+              <circle cx="78" cy="106" r="9" fill="#E8B48C"/>
+              <circle cx="162" cy="106" r="9" fill="#E8B48C"/>
+              <!-- Pelo -->
+              <path d="M78 96 C76 58 100 48 120 48 C140 48 164 58 162 96 C162 80 146 72 120 72 C94 72 78 80 78 96 Z" fill="#3B2353"/>
+              <!-- Cejas y ojos -->
+              <rect x="94" y="92" width="18" height="5" rx="2.5" fill="#3B2353"/>
+              <rect x="128" y="92" width="18" height="5" rx="2.5" fill="#3B2353"/>
+              <circle cx="103" cy="106" r="5" fill="#2A1840"/>
+              <circle cx="137" cy="106" r="5" fill="#2A1840"/>
+              <!-- Sonrisa -->
+              <path d="M102 126 Q120 142 138 126" fill="none" stroke="#C2856B" stroke-width="5" stroke-linecap="round"/>
+              <!-- Pin dorado del partido -->
+              <circle cx="86" cy="206" r="9" fill="#AC8A3E"/>
+              <text x="86" y="210" text-anchor="middle" font-size="10" font-weight="bold" fill="#FFF" font-family="Georgia, serif">P</text>
+            </svg>
+          </div>
+          <div class="retrato-chapa" data-reveal="zoom" style="--d:.3s">CANDIDATO 2027</div>
+        </div>
+
+        <div class="gobernador-texto">
+          <p class="seccion-kicker" data-reveal="derecha">Nuestro candidato a Gobernador</p>
+          <h2 class="seccion-titulo" data-reveal="derecha">Máximo <em>Potenza</em></h2>
+          <p class="gobernador-cargo" data-reveal="derecha" style="--d:.1s">Profesor de Historia · 38 años · Nacido en San Miguel de Tucumán</p>
+
+          <blockquote class="discurso" data-reveal="derecha" style="--d:.2s">
+            <p>“Tucumanas y tucumanos: nuestra provincia fue la cuna de la independencia, y hoy
+            tiene que ser la cuna del futuro. Yo no vengo a prometer magia: vengo a proponer
+            <strong>trabajo en serio</strong>, con metas públicas que ustedes van a poder controlar
+            todos los días desde el celular.</p>
+            <p>Vamos a poner la <strong>educación primero</strong>, porque un chico con una beca hoy
+            es un profesional que se queda en Tucumán mañana. Vamos a cuidar la <strong>salud</strong>
+            con hospitales modernos y a defender el <strong>trabajo</strong> de nuestra tierra: el
+            limón, la caña, el turismo y la tecnología.</p>
+            <p>El 9 de julio de 1816 Tucumán le declaró la independencia a un imperio. Imagínense
+            lo que podemos hacer ahora, juntos, con un solo objetivo: <strong>convertir a Tucumán
+            en la provincia potencia de la Argentina</strong>.”</p>
+          </blockquote>
+
+          <p class="firma" data-reveal="derecha" style="--d:.3s">— Máximo Potenza, lanzamiento de campaña</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. PROPUESTAS POR MINISTERIO
+         (las tarjetas se generan desde js/propuestas.js)
+         ============================================================ -->
+    <section class="seccion" id="propuestas">
+      <div class="contenedor">
+        <p class="seccion-kicker" data-reveal>Plan de gobierno 2027–2031</p>
+        <h2 class="seccion-titulo" data-reveal>Propuestas por <em>ministerio</em></h2>
+        <p class="seccion-intro" data-reveal>
+          Doce ministerios, un solo plan. Tocá cada tarjeta para desplegar las propuestas concretas
+          de cada área de gobierno.
+        </p>
+        <div class="grilla-ministerios" id="grillaMinisterios">
+          <!-- Generado por JavaScript -->
+        </div>
+        <noscript><p class="aviso">⚠️ Activá JavaScript para ver las propuestas detalladas.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. ESTADÍSTICAS VISUALES (Chart.js)
+         ============================================================ -->
+    <section class="seccion seccion-oscura seccion-diagonal" id="estadisticas">
+      <div class="contenedor">
+        <p class="seccion-kicker" data-reveal>Metas en números</p>
+        <h2 class="seccion-titulo" data-reveal>Estadísticas <em>visuales</em></h2>
+        <p class="seccion-intro" data-reveal>
+          Así proyectamos el impacto del plan Potencia. <span class="nota-datos">📊 Datos ficticios e
+          ilustrativos, elaborados para esta presentación escolar.</span>
+        </p>
+
+        <div class="grilla-graficos">
+          <div class="tarjeta-grafico" data-reveal>
+            <h3>💼 Empleo registrado proyectado</h3>
+            <p>Miles de puestos de trabajo en la provincia</p>
+            <div class="lienzo"><canvas id="graficoEmpleo" aria-label="Gráfico de líneas sobre empleo proyectado" role="img"></canvas></div>
+          </div>
+          <div class="tarjeta-grafico" data-reveal style="--d:.1s">
+            <h3>🎓 Educación: becas y escuelas técnicas</h3>
+            <p>Acumulado por año del plan Potencia Estudiantil</p>
+            <div class="lienzo"><canvas id="graficoEducacion" aria-label="Gráfico de barras sobre becas y escuelas técnicas" role="img"></canvas></div>
+          </div>
+          <div class="tarjeta-grafico" data-reveal style="--d:.15s">
+            <h3>🏔️ Origen de turistas proyectado</h3>
+            <p>Distribución estimada de visitantes en 2030</p>
+            <div class="lienzo"><canvas id="graficoTurismo" aria-label="Gráfico de anillo sobre origen de turistas" role="img"></canvas></div>
+          </div>
+          <div class="tarjeta-grafico" data-reveal style="--d:.2s">
+            <h3>🏆 Inversión deportiva por disciplina</h3>
+            <p>Índice de inversión (base 100) actual vs. plan Potencia</p>
+            <div class="lienzo"><canvas id="graficoDeportes" aria-label="Gráfico radar sobre inversión deportiva" role="img"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. JUEGO FINAL: CONVIÉRTETE EN GOBERNADOR DE TUCUMÁN
+         (la lógica vive en js/juego.js)
+         ============================================================ -->
+    <section class="seccion seccion-oscura seccion-diagonal seccion-juego" id="juego">
+      <canvas id="lienzoConfeti" aria-hidden="true"></canvas>
+      <div class="contenedor">
+        <p class="seccion-kicker" data-reveal>El desafío final</p>
+        <h2 class="seccion-titulo" data-reveal>🎮 Conviértete en <em>Gobernador</em> de Tucumán</h2>
+
+        <!-- Pantalla de inicio del juego -->
+        <div class="juego-panel" id="juegoInicio">
+          <p class="juego-intro">
+            Ganaste las elecciones. 🎉 Ahora viene lo difícil: <strong>gobernar</strong>.
+            Durante tu mandato vas a enfrentar <strong>8 situaciones reales</strong> y cada decisión
+            moverá cuatro indicadores: <span class="chip chip-eco">💰 Economía</span>
+            <span class="chip chip-edu">📚 Educación</span> <span class="chip chip-sal">🏥 Salud</span>
+            <span class="chip chip-pop">⭐ Popularidad</span>.
+            ¿Terminarás como <strong>Gobernador Excelente</strong>… o en crisis?
+          </p>
+          <button class="boton boton-primario boton-grande" id="botonComenzar" type="button">🏛️ Asumir el cargo</button>
+        </div>
+
+        <!-- Pantalla principal del juego -->
+        <div class="juego-panel oculto" id="juegoPrincipal">
+          <!-- Tablero de indicadores -->
+          <div class="tablero" id="tableroJuego">
+            <div class="indicador">
+              <span class="indicador-titulo">💰 Economía</span>
+              <div class="indicador-barra"><div class="indicador-relleno relleno-eco" id="barraEco"></div></div>
+              <span class="indicador-valor" id="valorEco">50</span>
+            </div>
+            <div class="indicador">
+              <span class="indicador-titulo">📚 Educación</span>
+              <div class="indicador-barra"><div class="indicador-relleno relleno-edu" id="barraEdu"></div></div>
+              <span class="indicador-valor" id="valorEdu">50</span>
+            </div>
+            <div class="indicador">
+              <span class="indicador-titulo">🏥 Salud</span>
+              <div class="indicador-barra"><div class="indicador-relleno relleno-sal" id="barraSal"></div></div>
+              <span class="indicador-valor" id="valorSal">50</span>
+            </div>
+            <div class="indicador">
+              <span class="indicador-titulo">⭐ Popularidad</span>
+              <div class="indicador-barra"><div class="indicador-relleno relleno-pop" id="barraPop"></div></div>
+              <span class="indicador-valor" id="valorPop">50</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta de la situación actual -->
+          <div class="situacion" id="tarjetaSituacion">
+            <p class="situacion-numero" id="situacionNumero">Situación 1 de 8</p>
+            <h3 class="situacion-titulo" id="situacionTitulo"></h3>
+            <p class="situacion-texto" id="situacionTexto"></p>
+            <div class="situacion-opciones" id="situacionOpciones"></div>
+          </div>
+
+          <!-- Resultado de la decisión -->
+          <div class="consecuencia oculto" id="panelConsecuencia">
+            <p class="consecuencia-texto" id="consecuenciaTexto"></p>
+            <div class="consecuencia-efectos" id="consecuenciaEfectos"></div>
+            <button class="boton boton-primario" id="botonSiguiente" type="button">Siguiente situación →</button>
+          </div>
+        </div>
+
+        <!-- Pantalla final del juego -->
+        <div class="juego-panel oculto" id="juegoFinal">
+          <span class="final-emoji" id="finalEmoji">🏆</span>
+          <h3 class="final-titulo" id="finalTitulo"></h3>
+          <p class="final-puntaje">Puntaje de gestión: <strong id="finalPuntaje">0</strong>/100</p>
+          <div class="final-barras" id="finalBarras"></div>
+          <p class="final-mensaje" id="finalMensaje"></p>
+          <button class="boton boton-secundario" id="botonReiniciar" type="button">↻ Gobernar de nuevo</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer class="pie">
+    <svg class="pie-escudo" aria-hidden="true"><use href="#pppa-escudo"></use></svg>
+    <p class="pie-nombre">Partido Político Potencia Argentina</p>
+    <p class="pie-eslogan">“¡Tucumán enciende, Argentina potencia!”</p>
+    <p class="pie-aviso">⚠️ Proyecto escolar — partido y datos 100% ficticios · San Miguel de Tucumán</p>
+    <p class="pie-credito">Hecho con HTML, CSS y JavaScript puros · Sin frameworks · Funciona sin internet</p>
+  </footer>
+
+  <!-- Botón para volver arriba -->
+  <button id="botonArriba" class="boton-arriba" type="button" aria-label="Volver arriba">↑</button>
+
+  <!-- ============================================================
+       SCRIPTS (Chart.js local con respaldo CDN + módulos propios)
+       ============================================================ -->
+  <script src="js/vendor/chart.umd.min.js"
+          onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js';s.integrity='sha384-b0GXujLkk9eYYSmcSfoyZbfyElGAQnDyY0skCHSG6w3JgTMFnz11ggrTAr7seu9f';s.crossOrigin='anonymous';document.head.appendChild(s);"></script>
+  <script src="js/main.js"></script>
+  <script src="js/propuestas.js"></script>
+  <script src="js/graficos.js"></script>
+  <script src="js/juego.js"></script>
+</body>
+</html>
